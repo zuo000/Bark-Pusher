@@ -5,10 +5,11 @@
 
   type Options = Pick<
     SyncStore,
-    'isAutoCopy' | 'shouldNotify' | 'archiveOption' | 'pushSound' | 'rememberGroup'
+    'isAutoCopy' | 'timeSensitive' | 'shouldNotify' | 'archiveOption' | 'pushSound' | 'rememberGroup'
   >;
   let options: Options = {
     isAutoCopy: true,
+    timeSensitive: true,
     shouldNotify: true,
     archiveOption: 'default',
     pushSound: '',
@@ -22,6 +23,7 @@
   onMount(async () => {
     options = await syncStore.get([
       'isAutoCopy',
+      'timeSensitive',
       'shouldNotify',
       'archiveOption',
       'pushSound',
@@ -39,6 +41,16 @@
         type="checkbox"
         bind:checked={options.isAutoCopy}
         on:change={() => updateOption('isAutoCopy')}
+      />
+    </label>
+  </div>
+  <div class="option-item">
+    <label>
+      Time Sensitive
+      <input
+        type="checkbox"
+        bind:checked={options.timeSensitive}
+        on:change={() => updateOption('timeSensitive')}
       />
     </label>
   </div>

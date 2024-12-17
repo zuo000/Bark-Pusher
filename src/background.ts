@@ -16,6 +16,7 @@ chrome.runtime.onInstalled.addListener(() => {
 
     const initStore: SyncStore = {
       isAutoCopy: thisStorage.isAutoCopy ?? true,
+      timeSensitive: thisStorage.timeSensitive ?? true,
       archiveOption: thisStorage.archiveOption ?? 'default',
       pushSound: thisStorage.pushSound ?? '',
       shouldNotify: thisStorage.shouldNotify ?? true,

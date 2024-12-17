@@ -7,6 +7,7 @@ export type ArchiveOption = 'default' | 'never' | 'always';
 
 export interface SyncStore {
   isAutoCopy: boolean;
+  timeSensitive: boolean;
   archiveOption: ArchiveOption;
   pushSound: string;
   shouldNotify: boolean;
