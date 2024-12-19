@@ -80,7 +80,7 @@ export const pushContent = async (
 
     const paramsValidator: { [paramStr: string]: boolean } = {
       [`url=${encodeURIComponent(url)}`]: Boolean(url),
-      ['automaticallyCopy=1']: !url && (await syncStore.get('isAutoCopy')),
+      ['automaticallyCopy=1']: (await syncStore.get('isAutoCopy')),
       ['level=timeSensitive']: (await syncStore.get('timeSensitive')),
       ['isArchive=1']: archiveOption === 'always',
       ['isArchive=0']: archiveOption === 'never',
